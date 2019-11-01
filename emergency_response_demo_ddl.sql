@@ -20,6 +20,28 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: incident_outbox; Type: TABLE; Schema: public; Owner: naps
+--
+
+CREATE TABLE public.incident_outbox (
+    id uuid NOT NULL,
+    aggregatetype character varying(255) NOT NULL,
+    aggregateid character varying(255) NOT NULL,
+    type character varying(255) NOT NULL,
+    payload text
+);
+
+
+ALTER TABLE public.incident_outbox OWNER TO naps;
+
+--
+-- Name: incident_outbox incident_outbox_pkey; Type: CONSTRAINT; Schema: public; Owner: naps
+--
+
+ALTER TABLE ONLY public.incident_outbox
+    ADD CONSTRAINT incident_outbox_pkey PRIMARY KEY (id);
+
+--
 -- Name: reported_incident; Type: TABLE; Schema: public; Owner: naps
 --
 
