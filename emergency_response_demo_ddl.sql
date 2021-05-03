@@ -28,9 +28,13 @@ CREATE TABLE public.incident_outbox (
     aggregatetype character varying(255) NOT NULL,
     aggregateid character varying(255) NOT NULL,
     type character varying(255) NOT NULL,
-    payload text
+    payload text,
+    ce_specversion character varying(255) NOT NULL,
+    ce_source character varying(255) NOT NULL,
+    ce_time character varying(255) NOT NULL,
+    ce_datacontenttype character varying(255) NOT NULL,
+    CONSTRAINT incident_service_outbox_pkey PRIMARY KEY (id)
 );
-
 
 ALTER TABLE public.incident_outbox OWNER TO naps;
 
